@@ -4,7 +4,7 @@ import { createBarChart } from '../../lib/charts'
 import { useSelector, useDispatch } from 'react-redux';
 import useStyles from './styles';
 
-const Chart = ({ id, chartType, dataFetch }) => {   
+const Chart = ({ id, chartType, fetchData }) => {   
     
     const store = useSelector((state) => state.reducer);
     let chart = useRef(null);
@@ -14,9 +14,9 @@ const Chart = ({ id, chartType, dataFetch }) => {
 
     useEffect(() => {
         console.log('Fetching...');
-       dispatch(dataFetch);
+       dispatch(fetchData);
         console.log('Done');
-    }, [dispatch, dataFetch])
+    }, [dispatch, fetchData])
 
     useEffect(() => {
         console.log(chartType)

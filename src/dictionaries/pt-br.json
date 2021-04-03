@@ -2,8 +2,8 @@
     "unit": "R$",
     
     "balance": "Saldo",
-    "avgNetIncome": "Renda líquida média",
-    "profitMargin": "Margem de lucro (último mês)",
+    "avgNetIncome": "Renda líquida média (últimos 3 meses)",
+    "profitMargin": "Margem de lucro (últimos 3 meses)",
 
     "netIncome": "Renda líquida",
     "cashFlow": "Fluxo de caixa"

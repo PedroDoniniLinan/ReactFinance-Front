@@ -6,5 +6,6 @@ export const fetchRecords = () => axios.get(url);
 export const fetchNetIncome = () => axios.get(url + "netIncome");
 export const fetchBalance = () => axios.get(url + "balance");
 export const fetchCashFlow = () => axios.get(url + "cashFlow");
+export const fetchHeader = () => axios.get(url + "header");
 
 // export const createTest = (newTest) => axios.post(url, newTest);

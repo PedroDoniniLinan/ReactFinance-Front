@@ -2,8 +2,8 @@
     "unit": "R$",
     
     "balance": "Balance",
-    "avgNetIncome": "Average net income",
-    "profitMargin": "Profit margin (last month)",
+    "avgNetIncome": "Average net income (last 3 months)",
+    "profitMargin": "Profit margin (last 3 months)",
 
     "netIncome": "Net income",
     "cashFlow": "Cash flow"

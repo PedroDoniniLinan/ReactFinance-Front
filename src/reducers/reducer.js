@@ -104,6 +104,15 @@ const reducer = (state = initialState, action) => {
         case "GET_RECORDS":
             console.log(action);
             return state;
+        case "GET_HEADER":
+            console.log(action);
+            return {
+                ...state,  
+                data: {
+                    ...state.data, 
+                    header: action.payload
+                }
+            };
         case "GET_NET_INCOME":
             console.log(action);
             return {

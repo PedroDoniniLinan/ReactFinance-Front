@@ -3,7 +3,7 @@ import React from 'react';
 // import { connect } from 'react-redux';
 // import { useSelector } from 'react-redux';
 
-import  { getBalance, getCashFlow, getNetIncome } from '../actions/actions';
+import  { getBalance, getCashFlow, getNetIncome, getHeader } from '../actions/actions';
 
 import NavBar from './NavBar/NavBar';
 import Header from './Header/Header';
@@ -22,17 +22,17 @@ const Main = () => {
     return (
         <div className={classes.background}>
             <NavBar />
-            <Header />
+            <Header fetchData={getHeader}/>
             <div className={classes.rowOne}>
                 <div className={classes.twoCharts}>
-                    <Chart id="1" chartType="balance" dataFetch={getBalance}/>
+                    <Chart id="1" chartType="balance" fetchData={getBalance}/>
                 </div>
                 <div className={classes.twoCharts}>
-                    <Chart id="2" chartType="netIncome" dataFetch={getNetIncome}/>
+                    <Chart id="2" chartType="netIncome" fetchData={getNetIncome}/>
                 </div>
             </div>
             <div className={classes.oneChart}>
-                <Chart id="3" chartType="cashFlow" dataFetch={getCashFlow}/>
+                <Chart id="3" chartType="cashFlow" fetchData={getCashFlow}/>
             </div>
         </div>        
     );

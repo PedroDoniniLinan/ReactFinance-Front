@@ -12,6 +12,15 @@ export const getRecord = async (dispatch) => {
 
 }
 
+export const getHeader = async (dispatch) => {
+    try {
+        const { data } = await api.fetchHeader();
+        dispatch({ type: 'GET_HEADER', payload: data});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
 export const getNetIncome = async (dispatch) => {
     try {
         const { data } = await api.fetchNetIncome();
