@@ -1,0 +1,10 @@
+{
+    "unit": "R$",
+    
+    "balance": "Saldo",
+    "avgNetIncome": "Renda líquida média",
+    "profitMargin": "Margem de lucro (último mês)",
+
+    "netIncome": "Renda líquida",
+    "cashFlow": "Fluxo de caixa"
+}
