@@ -1,0 +1,10 @@
+{
+    "unit": "R$",
+    
+    "balance": "Balance",
+    "avgNetIncome": "Average net income",
+    "profitMargin": "Profit margin (last month)",
+
+    "netIncome": "Net income",
+    "cashFlow": "Cash flow"
+}
