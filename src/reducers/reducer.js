@@ -46,15 +46,15 @@ const cashFlowOptions = {
         // {name: 'avgExpenses', format: " {valueY.formatNumber('#a')}", color: "#990000", fill: 0}
     ],
     colSeries: [
-        {name: 'income', format: " {valueY.formatNumber('#a')}", color: ["#00cc66"]},
-        {name: 'expense', format: " {valueY.formatNumber('#a')}", color: ["#ff3333"]}
+        {name: 'income', format: " {valueY.formatNumber('#.0a')}", color: ["#00cc66"]},
+        {name: 'expenses', format: " {valueY.formatNumber('#.0a')}", color: ["#ff3333"]}
     ]
 }
 
 const balanceOptions = {
     minValue: 0,
     lineSeries: [
-        {name: 'balance', format: " {valueY.formatNumber('#a')}", color: "#00cc66", fill: 0.3}
+        {name: 'balance', format: " {valueY.formatNumber('#.0a')}", color: "#00cc66", fill: 0.3}
     ],
     colSeries: []
 }
@@ -62,7 +62,7 @@ const balanceOptions = {
 const netIncomeOptions = {
     lineSeries: [],
     colSeries: [
-        {name: 'netIncome', format: " {valueY.formatNumber('#a')}", color: ["#00cc66", "#ff3333"], fill: 0.3},
+        {name: 'netIncome', format: " {valueY.formatNumber('#.0a')}", color: ["#00cc66", "#ff3333"], fill: 0.3},
     ]
 }
 
@@ -79,7 +79,7 @@ const header = {
 }
 
 const initialState = {
-    lang: 'en',
+    lang: 'pt',
     dict: dictionaries,
     data: {
         header: header,

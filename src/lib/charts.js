@@ -13,8 +13,12 @@ function createBarChart(id, data, options, unit="R$") {
     dateAxis.renderer.grid.template.location = 0;
     dateAxis.renderer.labels.template.fill = "#ccc"
     dateAxis.renderer.grid.template.stroke = "#999"
-
-
+    dateAxis.renderer.grid.template.location = 0.5;
+    dateAxis.renderer.cellStartLocation = 0.1
+    dateAxis.renderer.cellEndLocation = 0.9
+    dateAxis.renderer.labels.template.location = 0.5;
+    dateAxis.renderer.minGridDistance = 50;
+    
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.tooltip.disabled = true;
     valueAxis.renderer.minWidth = 35;
@@ -27,7 +31,8 @@ function createBarChart(id, data, options, unit="R$") {
         s.dataFields.dateX = "date";
         s.dataFields.valueY = series.name;
         s.tooltipText = unit + series.format;
-        s.columns.template.stroke = "#131722"
+        s.columns.template.stroke = "#131722";
+        s.columns.template.width = am4core.percent(100);
         if(series.color.length === 1) {
             s.columns.template.fill = am4core.color(series.color[0]);
         } else {

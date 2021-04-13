@@ -34,6 +34,14 @@ const Main = () => {
             <div className={classes.oneChart}>
                 <Chart id="3" chartType="cashFlow" fetchData={getCashFlow}/>
             </div>
+            <div className={classes.rowOne}>
+                <div className={classes.twoCharts}>
+                    <Chart id="4" chartType="balance" fetchData={getBalance}/>
+                </div>
+                <div className={classes.twoCharts}>
+                    <Chart id="5" chartType="netIncome" fetchData={getNetIncome}/>
+                </div>
+            </div>
         </div>        
     );
 }
