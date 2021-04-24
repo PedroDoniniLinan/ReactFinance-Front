@@ -1,4 +1,18 @@
 {
+    "en": "Inglês",
+    "pt": "Português",
+    "lang": "Língua",
+
+    "back": "Voltar",
+    "data": "Dado",
+    "income": "Renda",
+    "expenses": "Despesas",
+    "category": "Categoria",
+    "subcategory": "Subcategoria",
+    "view": "Visualização",
+    "absolute": "Valor absoluto",
+    "percentage": "Porcentagem",
+
     "unit": "R$",
     
     "balance": "Saldo",
@@ -6,5 +20,6 @@
     "profitMargin": "Margem de lucro (últimos 3 meses)",
 
     "netIncome": "Renda líquida",
-    "cashFlow": "Fluxo de caixa"
+    "cashFlow": "Fluxo de caixa",
+    "breakdown": "Quebras"
 }

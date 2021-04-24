@@ -40,6 +40,7 @@ const mockData2 = [
 // })
 
 const cashFlowOptions = {
+    stacked: false,
     minValue: 0,
     lineSeries: [
         // {name: 'avgIncome', format: " {valueY.formatNumber('#a')}", color: "#006633", fill: 0},
@@ -63,6 +64,15 @@ const netIncomeOptions = {
     lineSeries: [],
     colSeries: [
         {name: 'netIncome', format: " {valueY.formatNumber('#.0a')}", color: ["#00cc66", "#ff3333"], fill: 0.3},
+    ]
+}
+
+const breakdownOptions = {
+    
+    lineSeries: [],
+    colSeries: [
+        {name: 'income', format: " {valueY.formatNumber('#.0a')}", stacked: true, color: ["#00cc66"]},
+        {name: 'expenses', format: " {valueY.formatNumber('#.0a')}", stacked: true, color: ["#ff3333"]}
     ]
 }
 
@@ -94,6 +104,10 @@ const initialState = {
         cashFlow: {
             data: mockData,
             options: cashFlowOptions,
+        },
+        breakdown: {
+            data: mockData,
+            options: breakdownOptions,
         }
     },
     test: {}
@@ -101,6 +115,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
+        case "CHANGE_LANG":
+            console.log(action);
+            return {
+                ...state,  
+                lang: action.payload
+            };
         case "GET_RECORDS":
             console.log(action);
             return state;

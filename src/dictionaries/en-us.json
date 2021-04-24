@@ -1,4 +1,18 @@
 {
+    "en": "English",
+    "pt": "Portuguese",
+    "lang": "Language",
+
+    "back": "Back",
+    "data": "Data",
+    "income": "Income",
+    "expenses": "Expenses",
+    "category": "Category",
+    "subcategory": "Subcategory",
+    "view": "View",
+    "absolute": "Absolute value",
+    "percentage": "Percentage",
+
     "unit": "R$",
     
     "balance": "Balance",
@@ -6,5 +20,6 @@
     "profitMargin": "Profit margin (last 3 months)",
 
     "netIncome": "Net income",
-    "cashFlow": "Cash flow"
+    "cashFlow": "Cash flow",
+    "breakdown": "Breakdown"
 }

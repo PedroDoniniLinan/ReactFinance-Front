@@ -4,7 +4,13 @@ import { createBarChart } from '../../lib/charts'
 import { useSelector, useDispatch } from 'react-redux';
 import useStyles from './styles';
 
-const Chart = ({ id, chartType, fetchData }) => {   
+import { Dropdown } from '../Dropdown/Dropdown';
+
+
+import filter from '../../images/filter.svg';
+
+
+const Chart = ({ id, chartType, fetchData, filterMenu }) => {   
     
     const store = useSelector((state) => state.reducer);
     let chart = useRef(null);
@@ -14,16 +20,15 @@ const Chart = ({ id, chartType, fetchData }) => {
 
     useEffect(() => {
         console.log('Fetching...');
-       dispatch(fetchData);
+        dispatch(fetchData);
         console.log('Done');
     }, [dispatch, fetchData])
 
     useEffect(() => {
-        console.log(chartType)
-        console.log('Building chart...');
-        console.log(store.data[chartType].data);
+        console.log(chartType);
+        console.log(store.data[chartType]);
+
         chart.current = createBarChart(id, store.data[chartType].data, store.data[chartType].options, store.dict[store.lang].unit);
-        console.log(chart.current.data);
         return () => {
             console.log('unmount')
             if (chart.current) {
@@ -36,7 +41,13 @@ const Chart = ({ id, chartType, fetchData }) => {
     return (
         <div>
             <div className={classes.titleBadge}>
-                <span className={classes.chartTitle}>{store.dict[store.lang][chartType]}</span>
+                <div className={classes.filter}></div>
+                <div className={classes.chartTitle}>{store.dict[store.lang][chartType]}</div>
+                {filterMenu && <ul className={classes.filter}>
+                    <Dropdown icon={<img src={filter} alt="filter" width="20vw" /> } move='#filter'>
+                        {filterMenu}
+                    </Dropdown>
+                </ul>}
             </div> 
             <div id={id} className={classes.chart}></div>
             <div></div>
