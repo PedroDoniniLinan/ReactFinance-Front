@@ -114,6 +114,40 @@ export const DropdownMenu = (props) => {
                     )}
                 </ul>
             </CSSTransition>}
+
+            {props.D && <CSSTransition
+                in={activeMenu === 'D'}
+                unmountOnExit
+                timeout={500}
+                classNames="menu-secundary"
+            >
+                <ul style={{listStyleType: "none", paddingInline: "0px", marginInline: "0px", margin: "0px", marginBlock: "0px"}}>
+                    {props.D.map((option, i) => 
+                        <li>
+                            <DropdownItem goToMenu={props.onClickD[i].next} do={props.onClickD[i].do} move={props.move}>
+                                {option}
+                            </DropdownItem>
+                        </li>
+                    )}
+                </ul>
+            </CSSTransition>}
+
+            {props.E && <CSSTransition
+                in={activeMenu === 'E'}
+                unmountOnExit
+                timeout={500}
+                classNames="menu-secundary"
+            >
+                <ul style={{listStyleType: "none", paddingInline: "0px", marginInline: "0px", margin: "0px", marginBlock: "0px"}}>
+                    {props.E.map((option, i) => 
+                        <li>
+                            <DropdownItem goToMenu={props.onClickE[i].next} do={props.onClickE[i].do} move={props.move}>
+                                {option}
+                            </DropdownItem>
+                        </li>
+                    )}
+                </ul>
+            </CSSTransition>}
         </div>
     )
 }

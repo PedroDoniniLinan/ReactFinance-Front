@@ -2,10 +2,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
   background: {
-    backgroundColor: "#131722",
-    backgroundImage: "linear-gradient(to bottom right, #131722, #030712)",
+    // backgroundColor: "#131722",
+    // backgroundImage: "linear-gradient(to bottom right, #131722, #030712)",
     display: "block",
-    minHeight: "100vh"
+    // height: "200vh"
   },
   rowOne: {
     display: "flex",

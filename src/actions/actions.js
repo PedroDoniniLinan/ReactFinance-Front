@@ -50,6 +50,40 @@ export const getCashFlow = async (dispatch) => {
 
 }
 
+export const getBreakdown = (filter) => async (dispatch) => {
+    try {
+        console.log('getBreakdown');
+        console.log(filter);
+        if(filter.data === 'income' && filter.breakdown === 'category') {
+            const { data } = await api.fetchIncomeCategory(filter.aggregation);
+            dispatch({ type: 'GET_CASHFLOW_CATEGORY', payload: data});
+        } else if(filter.data === 'income' && filter.breakdown === 'subcategory') {
+            console.log('Started fetch');
+            const { data } = await api.fetchIncomeSubcategory(filter.aggregation, Object.keys(filter.category).filter(c => filter.category[c]));
+            console.log('Finished fetch');
+            console.log(data);
+            dispatch({ type: 'GET_CASHFLOW_CATEGORY', payload: data});
+        } else if(filter.data === 'expenses' && filter.breakdown === 'category') {
+            const { data } = await api.fetchExpensesCategory(filter.aggregation);
+            dispatch({ type: 'GET_CASHFLOW_CATEGORY', payload: data});
+        } else {
+            const { data } = await api.fetchExpensesSubcategory(filter.aggregation, Object.keys(filter.category).filter(c => filter.category[c]));
+            dispatch({ type: 'GET_CASHFLOW_CATEGORY', payload: data});
+        }
+    } catch (error) {
+        console.log(error.message);
+    }
+
+}
+
+export const changeLanguage = (lang) => (dispatch) => {
+    try {
+        dispatch({ type: 'CHANGE_LANG', payload: lang });
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
 // export const createTest = (test) => async (dispatch) => {
 //     try {
 //         const { data } = await api.createTest(test);

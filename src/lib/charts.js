@@ -1,13 +1,38 @@
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import am4themes_dataviz from "@amcharts/amcharts4/themes/dataviz";
+import { generateSeries } from './tools';
 
 am4core.useTheme(am4themes_animated);
+am4core.useTheme(am4themes_dataviz);
 
 function createBarChart(id, data, options, unit="R$") {
     let chart = am4core.create(id, am4charts.XYChart);
     chart.paddingRight = 20;
     chart.data = data;
+
+    
+    if(options.colSeries.length > 1 || options.lineSeries.length === 0) {
+        let autoSeries = generateSeries(data);
+        console.log('Series in charts')
+        console.log(autoSeries);
+        options = {...options, colSeries: options.colSeries.filter(c => {
+            console.log(c);
+            return autoSeries.includes(c.name);
+        })};
+    }
+
+    if(options.colSeries.length > 1 || options.lineSeries.length > 1) {
+        chart.legend = new am4charts.Legend();
+        chart.legend.labels.template.fill = am4core.color("#fff")
+        chart.legend.markers.template.width = 10;
+        chart.legend.markers.template.height = 10;
+        chart.legend.labels.template.truncate = true;
+        chart.legend.labels.template.maxWidth = 0.1;
+        chart.legend.scrollable = true;
+        chart.legend.maxHeight = 68;
+    }
 
     let dateAxis = chart.xAxes.push(new am4charts.DateAxis());
     dateAxis.renderer.grid.template.location = 0;
@@ -18,29 +43,42 @@ function createBarChart(id, data, options, unit="R$") {
     dateAxis.renderer.cellEndLocation = 0.9
     dateAxis.renderer.labels.template.location = 0.5;
     dateAxis.renderer.minGridDistance = 50;
-    
+
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.tooltip.disabled = true;
     valueAxis.renderer.minWidth = 35;
     valueAxis.min = options.minValue;
     valueAxis.renderer.labels.template.fill = "#ccc"
     valueAxis.renderer.grid.template.stroke = "#999"
+    if(options.distribution) {
+        valueAxis.max = 100;
+        valueAxis.strictMinMax = true;
+        valueAxis.calculateTotals = true;
+        valueAxis.renderer.minWidth = 50;
+    }
 
     options.colSeries.map(series => {
         let s = chart.series.push(new am4charts.ColumnSeries());
+        s.stacked = options.stacked;
+        s.name = series.name.charAt(0).toUpperCase() + series.name.slice(1);
+
         s.dataFields.dateX = "date";
         s.dataFields.valueY = series.name;
-        s.tooltipText = unit + series.format;
+        if(options.distribution)
+            s.dataFields.valueYShow = "totalPercent";
+        if(options.colSeries.length > 1) 
+            s.tooltipText = series.name.charAt(0).toUpperCase() + series.name.slice(1) + ": " + unit + options.format;
+        else 
+            s.tooltipText = unit + options.format;
         s.columns.template.stroke = "#131722";
         s.columns.template.width = am4core.percent(100);
-        if(series.color.length === 1) {
+        if(series.color && series.color.length === 1) {
             s.columns.template.fill = am4core.color(series.color[0]);
-        } else {
+        } else if(series.color) {
             s.columns.template.adapter.add("fill", function(fill, target) {
                 if(target.dataItem.valueY < 0)
                     return am4core.color(series.color[1]);
                 return am4core.color(series.color[0]);
-                // return fill;
             })
         }
         return s;
@@ -50,7 +88,7 @@ function createBarChart(id, data, options, unit="R$") {
         let s = chart.series.push(new am4charts.LineSeries());
         s.dataFields.dateX = "date";
         s.dataFields.valueY = series.name;
-        s.tooltipText = unit + series.format;
+        s.tooltipText = unit + options.format;
         s.strokeWidth = 2;
         s.minBulletDistance = 10;
         s.tooltip.pointerOrientation = "vertical";

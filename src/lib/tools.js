@@ -1,4 +1,4 @@
-function nFormatter(num, digits) {
+export function nFormatter(num, digits) {
     var si = [
         { value: 1, symbol: "" },
         { value: 1E3, symbol: "k" },
@@ -18,4 +18,18 @@ function nFormatter(num, digits) {
     return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
 }
 
-export { nFormatter };
+export function generateSeries(data) {
+    let series = Array.from(data.reduce((prev, curr) => {
+        Object.keys(curr).map(key => {
+            if(key !== "date")
+                prev.add(key);
+            return key;
+        })
+        return prev;
+    }, new Set()));
+    return series;
+}
+
+export function capitalize(s) {
+    return s.charAt(0).toUpperCase() + s.slice(1)
+}

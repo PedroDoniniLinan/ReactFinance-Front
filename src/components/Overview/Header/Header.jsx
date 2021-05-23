@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { nFormatter } from '../../lib/tools';
+import { nFormatter } from '../../../lib/tools';
 import useStyles from './styles';
 
 const Header = ({ fetchData }) => {
@@ -10,9 +10,9 @@ const Header = ({ fetchData }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('Fetching...');
+        // console.log('Fetching...');
        dispatch(fetchData);
-        console.log('Done');
+        // console.log('Done');
     }, [dispatch, fetchData])
     
     const dict = store.dict[store.lang];

@@ -7,6 +7,7 @@ export default makeStyles(() => ({
     padding: "2vw",
     paddingTop: "1vw",
     fontFamily: "helvetica",
+    textDecoration: "none"
   },
   bar: {
     width: "100%",

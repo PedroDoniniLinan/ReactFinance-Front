@@ -2,6 +2,7 @@ import React from 'react';
 
 import useStyles from './styles';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { Dropdown, DropdownMenu } from '../Dropdown/Dropdown';
 import  { changeLanguage } from '../../actions/actions';
@@ -18,7 +19,7 @@ const NavBar = () => {
 
     return(
         <nav className={classes.bar}>
-            <div className={classes.title}>ReactFinance</div>
+            <div className={classes.title}><Link to="/Menu" className={classes.title}>ReactFinance</Link></div>
             <div className={classes.menu}>
                 <ul className={classes.menuList}>
                     <Dropdown icon={<SettingsIcon/>} move='#'>

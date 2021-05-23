@@ -6,11 +6,12 @@ import useStyles from './styles';
 
 import { Dropdown } from '../Dropdown/Dropdown';
 
+import { settings } from '../../settings/settings';
 
 import filter from '../../images/filter.svg';
 
 
-const Chart = ({ id, chartType, fetchData, filterMenu }) => {   
+const Chart = ({ id, chartType, chartOptions, fetchData, filterMenu, filterState }) => {   
     
     const store = useSelector((state) => state.reducer);
     let chart = useRef(null);
@@ -20,17 +21,25 @@ const Chart = ({ id, chartType, fetchData, filterMenu }) => {
 
     useEffect(() => {
         console.log('Fetching...');
-        dispatch(fetchData);
-        console.log('Done');
-    }, [dispatch, fetchData])
+        if(filterState !== undefined) {
+            console.log(filterState);
+            dispatch(fetchData(filterState));
+        } else {
+            dispatch(fetchData);
+        }
+        // console.log('Done');
+    }, [dispatch, fetchData, filterState])
 
     useEffect(() => {
-        console.log(chartType);
-        console.log(store.data[chartType]);
-
-        chart.current = createBarChart(id, store.data[chartType].data, store.data[chartType].options, store.dict[store.lang].unit);
+        if(chartOptions === 'incomeSubcategoryAbsolute') {
+            console.log(chartOptions);
+            console.log(settings.chartOptions[chartOptions]);
+            console.log(store.data[chartType].data)
+        }
+        
+        chart.current = createBarChart(id, store.data[chartType].data, settings.chartOptions[chartOptions], store.dict[store.lang].unit);
         return () => {
-            console.log('unmount')
+            // console.log('unmount')
             if (chart.current) {
                 chart.current.dispose();
             }            
