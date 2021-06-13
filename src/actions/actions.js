@@ -76,6 +76,15 @@ export const getBreakdown = (filter) => async (dispatch) => {
 
 }
 
+export const getPortfolioHeader = async (dispatch) => {
+    try {
+        const { data } = await api.fetchPortfolioHeader();
+        dispatch({ type: 'GET_HEADER', payload: data});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
 export const changeLanguage = (lang) => (dispatch) => {
     try {
         dispatch({ type: 'CHANGE_LANG', payload: lang });

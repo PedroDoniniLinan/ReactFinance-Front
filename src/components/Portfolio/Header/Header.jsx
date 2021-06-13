@@ -22,16 +22,16 @@ const Header = ({ fetchData }) => {
     return (
         <div className={classes.header}>
             <div className={classes.headerNumber}>
-                <div className={classes.headerTitle}>{dict.balance}</div>
-                <div>{unit + nFormatter(header.balance, 1)}</div>
+                <div className={classes.headerTitle}>{dict.totalProfit}</div>
+                <div>{unit + nFormatter(header[0], 1)}</div>
             </div>
             <div className={classes.headerNumber}>
-                <div className={classes.headerTitle}>{dict.avgNetIncome}</div>
-                <div>{unit + nFormatter(header.avgNetIncome, 1)}</div>
+                <div className={classes.headerTitle}>{dict.avgYield}</div>
+                <div>{unit + nFormatter(header[1], 1)}</div>
             </div>
             <div className={classes.headerNumber}>
-                <div className={classes.headerTitle}>{dict.profitMargin}</div>
-                <div>{nFormatter(100 * header.profitMargin, 1)} %</div>
+                <div className={classes.headerTitle}>{dict.yield}</div>
+                <div>{nFormatter(100 * header[2], 1)} %</div>
             </div>
         </div>
     );

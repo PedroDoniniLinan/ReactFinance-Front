@@ -15,7 +15,7 @@
     "percentage": "Porcentagem",
     "aggregation": "Agregação",
     "monthly": "Mensal",
-    "quaterly": "Quadrimestral",
+    "quaterly": "Trimestral",
     "yearly": "Anual",
 
     "Parents": "Pais",
@@ -34,10 +34,13 @@
     "unit": "R$",
     
     "finances": "Finanças",
-    "portfolio": "Portfólio",
+    "portfolio": "Portifólio",
     "balance": "Saldo",
     "avgNetIncome": "Renda líquida média (últimos 3 meses)",
     "profitMargin": "Margem de lucro (últimos 3 meses)",
+    "totalProfit": "Lucro total",
+    "avgYield": "Renda mensal média (último ano)",
+    "yield": "Rendimento (último ano)",
 
     "netIncome": "Renda líquida",
     "cashFlow": "Fluxo de caixa",

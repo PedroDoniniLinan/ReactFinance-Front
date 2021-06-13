@@ -31,4 +31,6 @@ export const fetchExpensesSubcategory = (aggregation, categories) => {
     return axios.get(route);    
 };
 
+export const fetchPortfolioHeader = () => axios.get(url + "portfolioHeader");
+
 // export const createTest = (newTest) => axios.post(url, newTest);

@@ -38,6 +38,9 @@
     "balance": "Balance",
     "avgNetIncome": "Average net income (last 3 months)",
     "profitMargin": "Profit margin (last 3 months)",
+    "totalProfit": "Total profit",
+    "avgYield": "Average profit per month (last year)",
+    "yield": "Yield (last year)",
 
     "netIncome": "Net income",
     "cashFlow": "Cash flow",

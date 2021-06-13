@@ -7,11 +7,7 @@ const dictionaries = {
     en: en
 }
 
-const header = {
-    balance:115021,
-    avgNetIncome:5500,
-    profitMargin: 0.823
-}
+const header = ['','','']
 
 const initialState = {
     lang: 'en',

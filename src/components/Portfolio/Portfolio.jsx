@@ -1,6 +1,6 @@
 import React from 'react';
 
-import  { getBalance, getCashFlow, getNetIncome, getHeader, getBreakdown } from '../../actions/actions';
+import  { getBalance, getPortfolioHeader } from '../../actions/actions';
 
 import Chart from '../Chart/Chart';
 import Header from './Header/Header';
@@ -14,7 +14,7 @@ const Portfolio = () => {
 
     return (
         <div className={classes.background}>
-            <Header fetchData={getHeader}/>
+            <Header fetchData={getPortfolioHeader}/>
             <div className={classes.rowOne}>
                 <div className={classes.twoCharts}>
                     <Chart id="1" chartType="balance" chartOptions="balance" fetchData={getBalance}/>
