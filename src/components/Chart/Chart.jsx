@@ -30,21 +30,18 @@ const Chart = ({ id, chartType, chartOptions, fetchData, filterMenu, filterState
         // console.log('Done');
     }, [dispatch, fetchData, filterState])
 
+    let chartData = store.data[chartType].data
+    let options = settings.chartOptions[chartOptions]
+    let unit = store.dict[store.lang].unit
     useEffect(() => {
-        if(chartOptions === 'incomeSubcategoryAbsolute') {
-            console.log(chartOptions);
-            console.log(settings.chartOptions[chartOptions]);
-            console.log(store.data[chartType].data)
-        }
-        
-        chart.current = createBarChart(id, store.data[chartType].data, settings.chartOptions[chartOptions], store.dict[store.lang].unit);
+        chart.current = createBarChart(id, chartData, options, unit);
         return () => {
-            // console.log('unmount')
+            console.log('unmount')
             if (chart.current) {
                 chart.current.dispose();
             }            
         }
-    })
+    }, [chart, id, chartType, chartOptions, chartData, options, unit])
 
 
     return (

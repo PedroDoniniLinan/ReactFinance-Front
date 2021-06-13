@@ -15,10 +15,7 @@ function createBarChart(id, data, options, unit="R$") {
     
     if(options.colSeries.length > 1 || options.lineSeries.length === 0) {
         let autoSeries = generateSeries(data);
-        console.log('Series in charts')
-        console.log(autoSeries);
         options = {...options, colSeries: options.colSeries.filter(c => {
-            console.log(c);
             return autoSeries.includes(c.name);
         })};
     }

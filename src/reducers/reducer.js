@@ -16,7 +16,6 @@ const initialState = {
         header: header,
         balance: {
             data: [],
-            // options: balanceOptions
         },
         netIncome: {
             data: [],
@@ -25,6 +24,9 @@ const initialState = {
             data: [],
         },
         breakdown: {
+            data: [],
+        },
+        yield: {
             data: [],
         }
     },
@@ -95,6 +97,18 @@ const reducer = (state = initialState, action) => {
                     ...state.data, 
                     breakdown: {
                         ...state.data.breakdown, 
+                        data: action.payload
+                    }
+                }
+            };
+        case "GET_YIELD":
+            // console.log(action);
+            return {
+                ...state,  
+                data: {
+                    ...state.data, 
+                    yield: {
+                        ...state.data.yield, 
                         data: action.payload
                     }
                 }

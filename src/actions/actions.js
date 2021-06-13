@@ -52,16 +52,11 @@ export const getCashFlow = async (dispatch) => {
 
 export const getBreakdown = (filter) => async (dispatch) => {
     try {
-        console.log('getBreakdown');
-        console.log(filter);
         if(filter.data === 'income' && filter.breakdown === 'category') {
             const { data } = await api.fetchIncomeCategory(filter.aggregation);
             dispatch({ type: 'GET_CASHFLOW_CATEGORY', payload: data});
         } else if(filter.data === 'income' && filter.breakdown === 'subcategory') {
-            console.log('Started fetch');
             const { data } = await api.fetchIncomeSubcategory(filter.aggregation, Object.keys(filter.category).filter(c => filter.category[c]));
-            console.log('Finished fetch');
-            console.log(data);
             dispatch({ type: 'GET_CASHFLOW_CATEGORY', payload: data});
         } else if(filter.data === 'expenses' && filter.breakdown === 'category') {
             const { data } = await api.fetchExpensesCategory(filter.aggregation);
