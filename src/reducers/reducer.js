@@ -26,7 +26,7 @@ const initialState = {
         breakdown: {
             data: [],
         },
-        yield: {
+        allocation: {
             data: [],
         }
     },
@@ -101,14 +101,14 @@ const reducer = (state = initialState, action) => {
                     }
                 }
             };
-        case "GET_YIELD":
+        case "GET_ALLOCATION":
             // console.log(action);
             return {
                 ...state,  
                 data: {
                     ...state.data, 
-                    yield: {
-                        ...state.data.yield, 
+                    allocation: {
+                        ...state.data.allocation, 
                         data: action.payload
                     }
                 }

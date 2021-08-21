@@ -32,5 +32,9 @@ export const fetchExpensesSubcategory = (aggregation, categories) => {
 };
 
 export const fetchPortfolioHeader = () => axios.get(url + "portfolioHeader");
-
+export const fetchAllocation = (breakdown) => {
+    let route = breakdown !== undefined ? url + "allocation?breakdown=" + breakdown : url + "allocation";
+    console.log(route);
+    return axios.get(route);
+}
 // export const createTest = (newTest) => axios.post(url, newTest);

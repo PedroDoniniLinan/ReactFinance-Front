@@ -24,9 +24,13 @@
     "Taxes":"Imposto",
     "Loan":"Empréstimo",
     "Food":"Comida",
-    "Study":"Estudo",
+    "Clothes":"Roupas",
+    "Bureaucracy":"Burocracia",
+    "Education":"Educação",
     "Gift":"Presentes",
     "Electronics":"Eletrônicos",
+    "Transport":"Transporte",
+    "Home":"Casa",
     "Travel":"Viagem",
     "Tour":"Passeio",
     "Health":"Saúde",
@@ -44,5 +48,6 @@
 
     "netIncome": "Renda líquida",
     "cashFlow": "Fluxo de caixa",
-    "breakdown": "Quebras"
+    "breakdown": "Quebras",
+    "allocation": "Alocação"
 }

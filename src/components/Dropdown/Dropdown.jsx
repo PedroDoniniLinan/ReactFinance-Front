@@ -64,7 +64,7 @@ export const DropdownMenu = (props) => {
                 </ul>
             </CSSTransition>
 
-            <CSSTransition
+            {props.A && <CSSTransition
                 in={activeMenu === 'A'}
                 unmountOnExit
                 timeout={500}
@@ -79,7 +79,7 @@ export const DropdownMenu = (props) => {
                         </li>
                     )}
                 </ul>
-            </CSSTransition>
+            </CSSTransition>}
 
             {props.B && <CSSTransition
                 in={activeMenu === 'B'}

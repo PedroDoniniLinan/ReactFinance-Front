@@ -24,9 +24,13 @@
     "Taxes":"Taxes",
     "Loan":"Loan",
     "Food":"Food",
-    "Study":"Study",
+    "Clothes":"Clothes",
+    "Bureaucracy":"Bureaucracy",
+    "Education":"Education",
     "Gift":"Gift",
     "Electronics":"Electronics",
+    "Transport":"Transport",
+    "Home":"Home",
     "Travel":"Travel",
     "Tour":"Tour",
     "Health":"Health",
@@ -44,5 +48,7 @@
 
     "netIncome": "Net income",
     "cashFlow": "Cash flow",
-    "breakdown": "Breakdown"
+    "breakdown": "Breakdown",
+    "allocation": "Allocation"
+
 }

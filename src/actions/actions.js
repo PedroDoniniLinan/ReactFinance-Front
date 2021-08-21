@@ -80,6 +80,18 @@ export const getPortfolioHeader = async (dispatch) => {
     }
 }
 
+export const getAllocation = (filter) => async (dispatch) => {
+    try {
+        
+        const { data } = await api.fetchAllocation(filter.breakdown);
+        dispatch({ type: 'GET_ALLOCATION', payload: data});
+
+    } catch (error) {
+        console.log(error.message);
+    }
+
+}
+
 export const changeLanguage = (lang) => (dispatch) => {
     try {
         dispatch({ type: 'CHANGE_LANG', payload: lang });
