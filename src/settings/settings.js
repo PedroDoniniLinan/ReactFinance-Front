@@ -43,7 +43,8 @@ const incomeCategory = {
         {name: 'Parents', color: ["#ff9933"]},
         {name: 'Investments', color: ["#ffdb4d"]},
         {name: 'Salary', color: ["#00cc66"]},
-        {name: 'Taxes', color: ["#668cff"]}
+        {name: 'Taxes', color: ["#668cff"]},
+        {name: 'Axie', color: ["#668cff"]}
     ]
 }
 
@@ -68,6 +69,8 @@ const incomeSubcategory = {
         {name: 'IRDM11', color: ["#99ccff"]},
         {name: 'BTC', color: ["#ff3333"]},
         {name: 'ETH', color: ["#ff9999"]},
+        {name: 'ADA', color: ["#330000"]},
+        {name: 'Axie', color: ["#668cff"]}
     ]
 }
 
@@ -82,13 +85,14 @@ const expensesCategory = {
         {name: 'Food', color: ["#00cc66"]},
         {name: 'Clothes', color: ["#99ff99"]},
         {name: 'Education', color: ["#b366ff"]},
+        {name: 'Utility', color: ["#b366ff"]},
         {name: 'Bureaucracy', color: ["#b366ff"]},
         {name: 'Gift', color: ["#ff80bf"]},
         {name: 'Electronics', color: ["#668cff"]},
         {name: 'Travel', color: ["#ffdb4d"]},
         {name: 'Transport', color: ["#ff9933"]},
         {name: 'Tour', color: ["#80ffff"]},
-        {name: 'Home', color: ["#660066"]},
+        {name: 'Home', color: ["#621e1e"]},
         {name: 'Health', color: ["#ffcccc"]},
     ]
 }
@@ -99,14 +103,19 @@ const expensesSubcategory = {
     format: " {valueY.formatNumber('#.0a')}",
     lineSeries: [],
     colSeries: [
-        {name: 'Electricity', color: ["#ff4d4d"]},
+        // Home
+        {name: 'Gas', color: ["#f9ecec"]},
+        {name: 'Water', color: ["#edc5c5"]},
+        {name: 'Electricity', color: ["#f9ecec"]},
         {name: 'Infra', color: ["#d27979"]},
-        {name: 'Insurance', color: ["#732626"]},
-        {name: 'Internet', color: ["#6699ff"]},
-        {name: 'Rent', color: ["#002b80"]},
+        {name: 'Internet', color: ["#cf6363"]},
+        {name: 'Rent', color: ["#621e1e"]},
+        {name: 'Insurance', color: ["#3b1212"]},
+        // Transport
         {name: 'Uber', color: ["#dddddd"]},
-        {name: 'Gas', color: ["#33334d"]},
+        {name: 'Fuel', color: ["#1a1a1a"]},
         {name: 'Public transport', color: ["#ffffff"]},
+        // Taxes
         {name: 'Government', color: ["#ffffff"]},
         {name: 'Transaction', color: ["#999999"]},
         {name: 'Buy tax', color: ["#666666"]},
@@ -119,7 +128,6 @@ const expensesSubcategory = {
         {name: 'Food', color: ["#66ff99"]},
         {name: 'Supermarket', color: ["#00802b"]},
         {name: 'Snack', color: ["#003311"]},
-        {name: 'Socks', color: ["#66ff99"]},
         {name: 'Printing', color: ["#b366ff"]},
         {name: 'Documents', color: ["#666699"]},
         {name: 'Dasha', color: ["#ff99ff"]},
@@ -138,6 +146,15 @@ const expensesSubcategory = {
         {name: 'Pharmacy', color: ["#cc6699"]},
         {name: 'Doctor', color: ["#862d59"]},
         {name: 'Gift', color: ["#ff66ff"]},
+        {name: 'Gas fee', color: ["#33334d"]},
+        {name: 'Home meal', color: ["#66ff99"]},
+        {name: 'Office materials', color: ["#b366ff"]},
+        {name: 'Accessory D', color: ["#ffe6ff"]},
+        {name: 'Clothes D', color: ["#ff99ff"]},
+        {name: 'Accessory D', color: ["#e600e6"]},
+        {name: 'Clothes P', color: ["#99ffcc"]},
+        {name: 'Shoes P', color: ["#33ff99"]},
+        {name: 'Other people', color: ["#993399"]},
     ]
 }
 
@@ -184,8 +201,8 @@ const dictionaries = {
     en: en
 }
 
-const incomeCategories = ['Parents', 'Salary', 'Investments', 'Taxes'];
-const expensesCategories = ['Taxes', 'Loan', 'Food', 'Clothes', 'Education', 'Bureaucracy', 'Gift', 'Electronics', 'Transport', 'Home', 'Travel', 'Tour', 'Health'];
+const incomeCategories = ['Parents', 'Salary', 'Investments', 'Taxes', 'Axie'];
+const expensesCategories = ['Taxes', 'Loan', 'Food', 'Clothes', 'Education', 'Bureaucracy', 'Gift', 'Electronics', 'Transport', 'Home', 'Travel', 'Tour', 'Health', 'Utility'];
 
 export const settings = {
     chartOptions: {

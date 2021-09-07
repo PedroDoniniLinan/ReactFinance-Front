@@ -22,6 +22,7 @@
     "Investments": "Investimentos",
     "Salary": "Salário",
     "Taxes":"Imposto",
+    "Axie":"Axie",
     "Loan":"Empréstimo",
     "Food":"Comida",
     "Clothes":"Roupas",
@@ -34,6 +35,7 @@
     "Travel":"Viagem",
     "Tour":"Passeio",
     "Health":"Saúde",
+    "Utility":"Utilitário",
     
     "unit": "R$",
     
