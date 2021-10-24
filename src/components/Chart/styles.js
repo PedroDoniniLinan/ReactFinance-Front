@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles(() => ({
   chart: {
-    height: "40vh",
+    height: "60vh",
     fontFamily: "helvetica",
     marginTop: "2vh"
   },

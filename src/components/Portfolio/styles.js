@@ -5,7 +5,7 @@ export default makeStyles(() => ({
     // backgroundColor: "#131722",
     // backgroundImage: "linear-gradient(to bottom right, #131722, #030712)",
     display: "block",
-    // height: "200vh"
+    height: "140vh"
   },
   rowOne: {
     display: "flex",

@@ -5,12 +5,12 @@ export default makeStyles(() => ({
     backgroundColor: "#131722",
     backgroundImage: "linear-gradient(to bottom right, #131722, #030712)",
     display: "block",
-    // height: "200vh"
+    height: "270vh"
   },
   rowOne: {
     display: "flex",
     width: "100%",
-    height: "50vh",
+    height: "70vh",
     marginBottom: "2vw", 
   },
   twoCharts: {
@@ -21,6 +21,12 @@ export default makeStyles(() => ({
   oneChart: {
     marginLeft: "1vw",
     marginRight: "1vw",
+    // marginTop: "-3vh"
+  },
+  oneChartTwo: {
+    marginLeft: "1vw",
+    marginRight: "1vw",
+    height: "100vh",
     // marginTop: "-3vh"
   },
   twoChartsG: {

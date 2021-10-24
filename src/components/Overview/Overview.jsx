@@ -177,7 +177,7 @@ const Overview = () => {
             <div className={classes.oneChart}>
                 <Chart id="3" chartType="cashFlow" chartOptions="cashFlow" fetchData={getCashFlow}/>
             </div>
-            <div className={classes.oneChart}>
+            <div className={classes.oneChartTwo}>
                 <Chart 
                     id="4" 
                     chartType="breakdown" 

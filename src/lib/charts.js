@@ -10,6 +10,11 @@ am4core.useTheme(am4themes_dataviz);
 function createBarChart(id, data, options, unit="R$") {
     let chart = am4core.create(id, am4charts.XYChart);
     chart.paddingRight = 20;
+
+    data = data.map(row => {
+        return {...row, Total: 0.0}
+    })
+
     chart.data = data;
 
     
@@ -40,6 +45,7 @@ function createBarChart(id, data, options, unit="R$") {
     dateAxis.renderer.cellEndLocation = 0.9
     dateAxis.renderer.labels.template.location = 0.5;
     dateAxis.renderer.minGridDistance = 50;
+    dateAxis.tooltip.zIndex = -10;
 
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.tooltip.disabled = true;
@@ -47,24 +53,39 @@ function createBarChart(id, data, options, unit="R$") {
     valueAxis.min = options.minValue;
     valueAxis.renderer.labels.template.fill = "#ccc"
     valueAxis.renderer.grid.template.stroke = "#999"
+    valueAxis.calculateTotals = true;  
+    valueAxis.extraMax = 0.25;   
     if(options.distribution) {
         valueAxis.max = 100;
         valueAxis.strictMinMax = true;
         valueAxis.calculateTotals = true;
         valueAxis.renderer.minWidth = 50;
+        valueAxis.renderer.inside = true;
+        valueAxis.renderer.labels.template.disabled = true;
+        valueAxis.min = 0;
     }
 
+
+    var test;
+    var bool = false;
     options.colSeries.map(series => {
         let s = chart.series.push(new am4charts.ColumnSeries());
         s.stacked = options.stacked;
         s.name = series.name.charAt(0).toUpperCase() + series.name.slice(1);
-
         s.dataFields.dateX = "date";
         s.dataFields.valueY = series.name;
+        if(series.name === 'Total'){
+            test = s;
+            bool = true;
+            s.hiddenInLegend = true;
+            s.tooltip.disabled = true;
+        }
         if(options.distribution)
             s.dataFields.valueYShow = "totalPercent";
-        if(options.colSeries.length > 1) 
+        if(options.colSeries.length > 1) {
             s.tooltipText = series.name.charAt(0).toUpperCase() + series.name.slice(1) + ": " + unit + options.format;
+            s.tooltip.pointerOrientation = "down";
+        }
         else 
             s.tooltipText = unit + options.format;
         s.columns.template.stroke = "#131722";
@@ -80,6 +101,18 @@ function createBarChart(id, data, options, unit="R$") {
         }
         return s;
     })
+
+    if(bool) {
+        let totalBullet = test.bullets.push(new am4charts.LabelBullet());
+        totalBullet.dy = -10;
+        totalBullet.label.text = "{valueY.sum.formatNumber('#.00a')}";
+        totalBullet.label.scale = 2;
+        totalBullet.label.hideOversized = false;
+        totalBullet.label.fontSize = 6;
+        totalBullet.label.fill = '#fff'
+        totalBullet.label.padding(5, 10, 5, 10);
+
+    }
 
     options.lineSeries.map(series => {
         let s = chart.series.push(new am4charts.LineSeries());
@@ -108,6 +141,7 @@ function createBarChart(id, data, options, unit="R$") {
     })
 
     chart.cursor = new am4charts.XYCursor();
+    valueAxis.sortBySeries = chart.series;
 
     return chart;
 }
