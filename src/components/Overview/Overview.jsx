@@ -28,6 +28,7 @@ const Overview = () => {
         view: "absolute",
         aggregation: "monthly",
         category: incomeCategoriesState,
+        all: true,
     });
 
     const classes = useStyles();
@@ -38,6 +39,12 @@ const Overview = () => {
             <img src={backArrow} alt="barrow" width="20vw" height="20vw" />
             {settings.dict[store.lang].back}
         </div>;
+    
+    const selectAll = 
+    <div className={classes.dropdownItem}>
+            {'Select all'}
+            {activeBreakdownData.all && <img src={check} alt="check" width="10vw" height="10vw" style={{paddingLeft: "1vw"}} />}
+    </div>;
 
     const categoriesFilter = settings.categories[activeBreakdownData.data].map(c => 
         <div className={classes.dropdownItem}>
@@ -45,6 +52,7 @@ const Overview = () => {
             {activeBreakdownData.category[c] && <img src={check} alt="check" width="10vw" height="10vw" style={{paddingLeft: "1vw"}} />}
         </div>
     );
+    categoriesFilter.splice(0, 0, selectAll);
     categoriesFilter.splice(0, 0, backArrowOption);
 
     const categoriesActions = settings.categories[activeBreakdownData.data].map(c => {
@@ -52,8 +60,16 @@ const Overview = () => {
             next: "E", do: () => {
                 let newCategory = activeBreakdownData.category;
                 newCategory[c] = !newCategory[c];
-                setActiveBreakdownData({...activeBreakdownData, caegory: newCategory});
+                setActiveBreakdownData({...activeBreakdownData, category: newCategory});
             }
+        }
+    });
+    categoriesActions.splice(0, 0, {
+        next: "E", do: () => {
+            let newCategory = activeBreakdownData.category;        
+            let newAll = !activeBreakdownData.all;    
+            settings.categories[activeBreakdownData.data].map(c => { newCategory[c] = newAll; return 0;})
+            setActiveBreakdownData({...activeBreakdownData, category: newCategory, all: newAll});
         }
     });
     categoriesActions.splice(0, 0, {next: "main"});
