@@ -83,7 +83,7 @@ export const getPortfolioHeader = async (dispatch) => {
 export const getAllocation = (filter) => async (dispatch) => {
     try {
         
-        const { data } = await api.fetchAllocation(filter.breakdown);
+        const { data } = await api.fetchAllocation(filter.breakdown, Object.keys(filter.category).filter(c => filter.category[c]));
         dispatch({ type: 'GET_ALLOCATION', payload: data});
 
     } catch (error) {

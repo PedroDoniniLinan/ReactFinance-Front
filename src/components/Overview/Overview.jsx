@@ -34,6 +34,7 @@ const Overview = () => {
     const classes = useStyles();
     // const dispatch = useDispatch();
 
+    // CATEGORIES FILTER
     const backArrowOption = 
         <div className={classes.dropdownItem}>
             <img src={backArrow} alt="barrow" width="20vw" height="20vw" />
@@ -74,6 +75,7 @@ const Overview = () => {
     });
     categoriesActions.splice(0, 0, {next: "main"});
 
+    // FILTER MENU
     const mainMenu = [
         <div className={classes.dropdownItem}>
             {settings.dict[store.lang].data}: {settings.dict[store.lang][activeBreakdownData.data]}

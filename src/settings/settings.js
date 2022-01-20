@@ -333,6 +333,7 @@ const dictionaries = {
 
 const incomeCategories = ['Parents', 'Stocks', 'Fixed income', 'Crypto', 'Stablecoin', 'Salary', 'Cash', 'Taxes', 'NFT games'];
 const expensesCategories = ['Taxes', 'Loan', 'Food', 'Clothes', 'Bureaucracy', 'Services', 'Gift', 'Electronics', 'NFT games', 'Salary', 'Transport', 'Home', 'Travel', 'Tour', 'Health', 'Utility'];
+const allocationCategories = ['Fixed income', 'US growth', 'US finances', 'US super growth', 'BR growth', 'Stablecoin', 'NFT games', 'Crypto', 'Real state', 'Cash']
 
 export const settings = {
     chartOptions: {
@@ -357,6 +358,7 @@ export const settings = {
     dict: dictionaries,
     categories: {
         income: incomeCategories,
-        expenses: expensesCategories
+        expenses: expensesCategories,
+        allocation: allocationCategories
     }
 };
