@@ -1,19 +1,25 @@
 import pt from '../dictionaries/pt-br.json';
 import en from '../dictionaries/en-us.json';
-
+import { settings } from '../settings/settings';
 
 const dictionaries = {
     pt: pt,
     en: en
 }
 
-const header = ['','','']
+const headerInit = ['','','']
+const allocationCategories = Object.fromEntries(settings.categories.allocation.map(c => [c, true]));
 
 const initialState = {
     lang: 'en',
     dict: dictionaries,
+    header: {
+        dateRange: 'Year',
+        category: allocationCategories,
+        all: true,
+    },
     data: {
-        header: header,
+        header: headerInit,
         balance: {
             data: [],
         },
@@ -40,6 +46,32 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,  
                 lang: action.payload
+            };
+        case "CHANGE_DATE_RANGE":
+            // console.log(action);
+            return {
+                ...state,  
+                header: {
+                    ...state.header,
+                    dateRange: action.payload
+                }
+            };
+        case "CHANGE_CATEGORIES":
+            console.log('Action!');
+            console.log({
+                ...state,  
+                header: {
+                    ...state.header,
+                    category: action.payload.category,
+                    all: action.payload.all
+                }});
+            return {
+                ...state,  
+                header: {
+                    ...state.header,
+                    category: action.payload.category,
+                    all: action.payload.all
+                }
             };
         case "GET_RECORDS":
             // console.log(action);

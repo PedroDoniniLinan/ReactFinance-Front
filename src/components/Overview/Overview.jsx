@@ -183,7 +183,7 @@ const Overview = () => {
     return (
         <div className={classes.background}>
             {/* <NavBar /> */}
-            <Header fetchData={getHeader}/>
+            <Header fetchData={getHeader} filterState={store.header}/>
             <div className={classes.rowOne}>
                 <div className={classes.twoCharts}>
                     <Chart id="1" chartType="balance" chartOptions="balance" fetchData={getBalance}/>

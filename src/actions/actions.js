@@ -12,9 +12,9 @@ export const getRecord = async (dispatch) => {
 
 }
 
-export const getHeader = async (dispatch) => {
+export const getHeader = (filter) => async (dispatch) => {
     try {
-        const { data } = await api.fetchHeader();
+        const { data } = await api.fetchHeader(filter.dateRange);
         dispatch({ type: 'GET_HEADER', payload: data});
     } catch (error) {
         console.log(error.message);
@@ -71,9 +71,12 @@ export const getBreakdown = (filter) => async (dispatch) => {
 
 }
 
-export const getPortfolioHeader = async (dispatch) => {
+export const getPortfolioHeader = (filter) => async (dispatch) => {
     try {
-        const { data } = await api.fetchPortfolioHeader();
+        console.log(filter.category)
+        console.log(Object.keys(filter.category))
+        console.log(Object.keys(filter.category).filter(c => filter.category[c]))
+        const { data } = await api.fetchPortfolioHeader(filter.dateRange, Object.keys(filter.category).filter(c => filter.category[c]), Object.keys(filter.category).filter(c => filter.category[c]));
         dispatch({ type: 'GET_HEADER', payload: data});
     } catch (error) {
         console.log(error.message);
@@ -95,6 +98,22 @@ export const getAllocation = (filter) => async (dispatch) => {
 export const changeLanguage = (lang) => (dispatch) => {
     try {
         dispatch({ type: 'CHANGE_LANG', payload: lang });
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+export const changeDateRange = (dateRange) => (dispatch) => {
+    try {
+        dispatch({ type: 'CHANGE_DATE_RANGE', payload: dateRange });
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+export const changeCategories = (dateRange) => (dispatch) => {
+    try {
+        dispatch({ type: 'CHANGE_CATEGORIES', payload: dateRange });
     } catch (error) {
         console.log(error.message);
     }

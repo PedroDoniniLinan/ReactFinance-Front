@@ -4,16 +4,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { nFormatter } from '../../../lib/tools';
 import useStyles from './styles';
 
-const Header = ({ fetchData }) => {
+const Header = ({ fetchData, filterState }) => {
     const classes = useStyles();
     const store = useSelector((state) => state.reducer);
     const dispatch = useDispatch();
 
     useEffect(() => {
         // console.log('Fetching...');
-       dispatch(fetchData);
+       dispatch(fetchData(filterState));
         // console.log('Done');
-    }, [dispatch, fetchData])
+    }, [dispatch, fetchData, filterState])
     
     const dict = store.dict[store.lang];
     const header = store.data.header;

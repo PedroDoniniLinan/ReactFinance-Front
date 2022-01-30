@@ -21,7 +21,7 @@ const Portfolio = () => {
     const allocationCategories = Object.fromEntries(settings.categories.allocation.map(c => [c, true]));
 
     const [activeBreakdownData, setActiveBreakdownData] = useState({
-        data: "allocation",
+        // data: "allocation",
         breakdown: "category",
         view: "absolute",
         category: allocationCategories,
@@ -43,7 +43,7 @@ const Portfolio = () => {
             {activeBreakdownData.all && <img src={check} alt="check" width="10vw" height="10vw" style={{paddingLeft: "1vw"}} />}
     </div>;
 
-    const categoriesFilter = settings.categories[activeBreakdownData.data].map(c => 
+    const categoriesFilter = settings.categories.allocation.map(c => 
         <div className={classes.dropdownItem}>
             {settings.dict[store.lang][c]}
             {activeBreakdownData.category[c] && <img src={check} alt="check" width="10vw" height="10vw" style={{paddingLeft: "1vw"}} />}
@@ -52,7 +52,7 @@ const Portfolio = () => {
     categoriesFilter.splice(0, 0, selectAll);
     categoriesFilter.splice(0, 0, backArrowOption);
 
-    const categoriesActions = settings.categories[activeBreakdownData.data].map(c => {
+    const categoriesActions = settings.categories.allocation.map(c => {
         return {
             next: "D", do: () => {
                 let newCategory = activeBreakdownData.category;
@@ -65,7 +65,7 @@ const Portfolio = () => {
         next: "D", do: () => {
             let newCategory = activeBreakdownData.category;        
             let newAll = !activeBreakdownData.all;    
-            settings.categories[activeBreakdownData.data].map(c => { newCategory[c] = newAll; return 0;})
+            settings.categories.allocation.map(c => { newCategory[c] = newAll; return 0;})
             setActiveBreakdownData({...activeBreakdownData, category: newCategory, all: newAll});
         }
     });
@@ -138,7 +138,7 @@ const Portfolio = () => {
 
     return (
         <div className={classes.background}>
-            <Header fetchData={getPortfolioHeader}/>
+            <Header fetchData={getPortfolioHeader} filterState={store.header}/>
             <div className={classes.rowOne}>
                 <div className={classes.twoCharts}>
                     <Chart 
