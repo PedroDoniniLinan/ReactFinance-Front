@@ -213,6 +213,9 @@ const expensesSubcategory = {
         {name: 'Embersword', color: ["#ff3333"]},
         {name: 'Bomb', color: ["#ff6600"]},
         {name: 'TRV', color: ["#e60000"]},
+        // Services
+        {name: 'Education', color: ["#4d79ff"]},
+        {name: 'Leisure', color: ["#4d79ff"]},
         // Salary
         {name: 'Daria', color: ["#e60000"]},
         // Travel
@@ -229,9 +232,11 @@ const expensesSubcategory = {
         {name: 'Estetic', color: ["#f2d9e6"]},
         {name: 'Pharmacy', color: ["#cc6699"]},
         {name: 'Doctor', color: ["#862d59"]},
+        {name: 'Exam', color: ["#862d59"]},
         // Utility
         {name: 'Office materials', color: ["#b366ff"]},
         {name: 'Printing', color: ["#6600cc"]},
+        {name: 'Decoration', color: ["#6600cc"]},
         // Clothes
         {name: 'Accessory D', color: ["#ffe6ff"]},
         {name: 'Clothes D', color: ["#ff99ff"]},
@@ -249,6 +254,7 @@ const allocationCategory = {
     lineSeries: [],
     colSeries: [
         {name: 'Fixed income', color: ["#bf80ff"]},
+        {name: 'US value', color: ["#99ffcc"]},
         {name: 'US growth', color: ["#3366ff"]},
         {name: 'US finances', color: ["#66ff99"]},
         {name: 'US super growth', color: ["#80dfff"]},
@@ -257,6 +263,7 @@ const allocationCategory = {
         {name: 'NFT games', color: ["#668cff"]},
         {name: 'Crypto', color: ["#ff3333"]},
         {name: 'Real state', color: ["#b3b3b3"]},
+        {name: 'Commodities', color: ["#b3b3cc"]},
         {name: 'Cash', color: ["#33cc33"]},
         {name: 'Total', color: ["#ff9933"]},
     ]
@@ -279,8 +286,11 @@ const allocationSubcategory = {
         // Cash
         {name: 'EUR', color: ["#b3ecff"]},
         {name: 'BRL', color: ["#b3ffb3"]},
+        {name: 'USD', color: ["#0066cc"]},
         // Fixed Income
         {name: 'Fixed income (BRL)', color: ["#bf80ff"]},
+        {name: 'MTD', color: ["#ccf2ff"]},
+        {name: 'MTF', color: ["#80dfff"]},
         // Stocks
         {name: 'IVVB11', color: ["#3366ff"]},
         {name: 'MSFT34', color: ["#24478f"]},
@@ -289,16 +299,16 @@ const allocationSubcategory = {
         {name: 'AMZO34', color: ["#99b3e6"]},
         {name: 'DISB34', color: ["#eaf0fa"]},
         {name: 'TSLA34', color: ["#80dfff"]},
-        {name: 'MSBR34', color: ["#66ff99"]},
+        {name: 'MSBR34', color: ["#00cc99"]},
         {name: 'JPMC34', color: ["#66ff99"]},
         {name: 'BRAX11', color: ["#ffff66"]},
         {name: 'BBSD11', color: ["#cc9900"]},
         {name: 'IRDM11', color: ["#b3b3b3"]},
-        {name: 'MTD', color: ["#ccf2ff"]},
-        {name: 'MTF', color: ["#80dfff"]},
         {name: 'UST', color: ["#0039e6"]},
         {name: 'RUS', color: ["#ffffff"]},
+        // US Value
         {name: 'SXLU', color: ["#99ffcc"]},
+        // Commod
         {name: 'PHPD', color: ["#b3b3cc"]},
         // Crypto
         {name: 'BTC', color: ["#ffcc00"]},
@@ -311,8 +321,7 @@ const allocationSubcategory = {
         {name: 'DOT', color: ["#ff33ff"]},
         {name: 'SHIB', color: ["#ff6600"]},
         {name: 'SAND', color: ["#66d9ff"]},
-        {name: 'LTC', color: ["#66d9ff"]},
-        {name: 'LUNA', color: ["#66d9ff"]},
+        {name: 'LUNA', color: ["#ffffcc"]},
         // NFT games
         {name: 'Axie', color: ["#4d79ff"]},
         {name: 'Star atlas', color: ["#1a1a1a"]},
@@ -321,7 +330,7 @@ const allocationSubcategory = {
         {name: 'Bomb', color: ["#ff6600"]},
         {name: 'AXS', color: ["#668cff"]},
         {name: 'SLP', color: ["#ffb3ff"]},
-        {name: 'RON', color: ["#ffb3ff"]},
+        {name: 'RON', color: ["#000099"]},
         {name: 'ATLAS', color: ["#a6a6a6"]},
         {name: 'POLIS', color: ["#666666"]},
         {name: 'THC', color: ["#ffa64d"]},
@@ -344,7 +353,7 @@ const dictionaries = {
 
 const incomeCategories = ['Parents', 'Stocks', 'Fixed income', 'Crypto', 'Stablecoin', 'Salary', 'Cash', 'Taxes', 'NFT games'];
 const expensesCategories = ['Taxes', 'Loan', 'Food', 'Clothes', 'Bureaucracy', 'Services', 'Gift', 'Electronics', 'NFT games', 'Salary', 'Transport', 'Home', 'Travel', 'Tour', 'Health', 'Utility'];
-const allocationCategories = ['Fixed income', 'US growth', 'US finances', 'US super growth', 'BR growth', 'Stablecoin', 'NFT games', 'Crypto', 'Real state', 'Cash']
+const allocationCategories = ['Fixed income', 'US value', 'US growth', 'US finances', 'US super growth', 'BR growth', 'Stablecoin', 'NFT games', 'Crypto', 'Real state', 'Commodities', 'Cash']
 
 export const settings = {
     chartOptions: {
